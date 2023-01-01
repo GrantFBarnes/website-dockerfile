@@ -3,7 +3,13 @@ FROM almalinux:9
 # Update and install packages
 RUN dnf upgrade --refresh -y
 RUN dnf module enable nodejs:18 -y
-RUN dnf install nodejs npm git -y
+RUN dnf install nodejs npm -y
+RUN dnf install git -y
+RUN dnf install python3-pip -y
+RUN python3 -m pip install mysql-connector-python
+RUN python3 -m pip install pandas
+RUN python3 -m pip install sklearn
+RUN python3 -m pip install scikit-learn
 
 RUN mkdir -p /app
 
